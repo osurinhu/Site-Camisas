@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, flash, redirect, render_template, request, session
 
-app = Flask(__name__)
+app = Flask(__name__);
 
-@app.route("/")
+@app.route("/login", methods=["GET","POST"])
 def index():
-    return "<p>Teste legal<\p>"
+    return render_template("login.html");
