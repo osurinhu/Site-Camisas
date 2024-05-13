@@ -50,6 +50,7 @@
         </div>
     </div>
 
+
     <!-- Carrinho de Compras -->
     <div class="carrinho" onclick="mostrarCarrinho()">Carrinho</div>
 
@@ -60,24 +61,29 @@
             <ul id="lista-carrinho">
                 <!-- Itens do Carrinho serão adicionados dinamicamente aqui -->
             </ul>
-            <p>Total: R$ <span id="total-carrinho">0.00</span></p>
-            <button onclick="mostrarPagamento()">Pagar</button>
+            <div id="div-registro" style="display: none;">
+                <h3>Informações de Registro</h3>
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" placeholder="Nome Completo" required><br>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" placeholder="Telefone" required><br>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" placeholder="CEP" required><br>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="E-mail" required><br>
+                <button onclick="verificarRegistro()">Continuar</button>
+            </div>
+            <div id="div-pagamento" style="display: none;">
+                <h2>Formas de Pagamento</h2>
+                <label for="forma-pagamento">Escolha a forma de pagamento:</label>
+                <select id="forma-pagamento">
+                    <option value="cartao">Cartão de Crédito</option>
+                    <option value="boleto">Boleto Bancário</option>
+                    <option value="pix">PIX</option>
+                </select>
+                <button onclick="efetuarPagamento()">Pagar</button>
+            </div>
             <button onclick="fecharModal()">Fechar</button>
-        </div>
-    </div>
-
-    <!-- Modal de Pagamento -->
-    <div id="modal-pagamento" class="modal">
-        <div class="modal-content">
-            <h2>Formas de Pagamento</h2>
-            <label for="forma-pagamento">Escolha a forma de pagamento:</label>
-            <select id="forma-pagamento">
-                <option value="cartao">Cartão de Crédito</option>
-                <option value="boleto">Boleto Bancário</option>
-                <option value="pix">PIX</option>
-            </select>
-            <button onclick="efetuarPagamento()">Pagar</button>
-            <button onclick="fecharModal()">Cancelar</button>
         </div>
     </div>
 
