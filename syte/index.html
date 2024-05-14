@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camisas Personalizadas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="loader">
+        <span>S</span>
+        <span>A</span>
+        <span>N</span>
+        <span>D</span>
+        <span>R</span>
+        <span>O</span>
+        
+        <span>C</span>
+        <span>A</span>
+        <span>M</span>
+        <span>I</span>
+        <span>S</span>
+        <span>A</span>
+        <span>S</span>
+      </h1>
+    <!-- Conteúdo Principal -->
+    
+    <div class="container">
+        <div class="produto" onclick="adicionarAoCarrinho('Unissex P', 25)">
+            <img src="imagens/white-tshirt-n0j.png" alt="Unissex P" height="400px" width="400px">
+            <h3>Unissex P</h3>
+            <p>Preço: R$ 25,00</p>
+        </div>
+        <div class="produto" onclick="adicionarAoCarrinho('Unissex M', 30)">
+            <img src="imagens/white-tshirt-n0j.png" alt="Unissex M" height="400px" width="400px">
+            <h3>Unissex M</h3>
+            <p>Preço: R$ 30,00</p>
+        </div>
+        <div class="produto" onclick="adicionarAoCarrinho('Unissex G', 35)">
+            <img src="imagens/white-tshirt-n0j.png" alt="Unissex G" height="400px" width="400px">
+            <h3>Unissex G</h3>
+            <p>Preço: R$ 35,00</p>
+        </div>
+        <div class="produto" onclick="adicionarAoCarrinho('Babylook', 28)">
+            <img src="imagens/camiseta_algodao_colorida_babylook_fio_31_1_penteado_69_1_11fd76c68ef6a0bde512ae9f806a6052.webp" alt="Babylook" height="400px" width="400px">
+            <h3>Babylook</h3>
+            <p>Preço: R$ 28,00</p>
+        </div>
+    </div>
+
+
+    <!-- Carrinho de Compras -->
+    <div class="carrinho" onclick="mostrarCarrinho()">Carrinho</div>
+
+    <!-- Modal de Carrinho -->
+    <div id="modal-carrinho" class="modal">
+        <div class="modal-content">
+            <h2>Carrinho de Compras</h2>
+            <ul id="lista-carrinho">
+                <!-- Itens do Carrinho serão adicionados dinamicamente aqui -->
+            </ul>
+            <div id="div-registro" style="display: none;">
+                <h3>Informações de Registro</h3>
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" placeholder="Nome Completo" required><br>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" placeholder="Telefone" required><br>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" placeholder="CEP" required><br>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="E-mail" required><br>
+                <button onclick="verificarRegistro()">Continuar</button>
+            </div>
+            <div id="div-pagamento" style="display: none;">
+                <h2>Formas de Pagamento</h2>
+                <label for="forma-pagamento">Escolha a forma de pagamento:</label>
+                <select id="forma-pagamento">
+                    <option value="cartao">Cartão de Crédito</option>
+                    <option value="boleto">Boleto Bancário</option>
+                    <option value="pix">PIX</option>
+                </select>
+                <button onclick="efetuarPagamento()">Pagar</button>
+            </div>
+            <button onclick="fecharModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
