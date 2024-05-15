@@ -13,41 +13,55 @@ CREATE TABLE usuarios (
 )
 
 -- TODO: Preciso pensar mais
-CREATE TABLE estampas (
+CREATE TABLE produtos (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    estampa_nome TEXT NOT NULL,
-    estampa_descricao TEXT,
+    produto_nome TEXT NOT NULL,
+    produto_descricao TEXT,
     price REAL NOT NULL,
-    discount INTEGER,
-
-	estampa_dono TEXT NOT NULL,
+    discount REAL,
     add_date TEXT NOT NULL
 )
 	
 CREATE TABLE tags (
-    estampa_id INTEGER NOT NULL,
+    produto_id INTEGER NOT NULL,
     tag TEXT NOT NULL,
 
-    FOREIGN KEY(estampa_id) REFERENCES estampa_descricao(id)
+    FOREIGN KEY(produto_id) REFERENCES produto_descricao(id)
+)
 
+CREATE TABLE imagens(
+
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    produto_id INTEGER NOT NULL,
+    img_descricao TEXT,
+
+    imagem BLOB NOT NULL
 )
 
 CREATE TABLE favoritos (
     usuario_id INTEGER NOT NULL,
-    estampa_id INTEGER NOT NULL,
+    produto_id INTEGER NOT NULL,
     data_adicao TEXT NOT NULL,
 
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id),
-    FOREIGN KEY(estampa_id) REFERENCES estampas(id)
+    FOREIGN KEY(produto_id) REFERENCES produtos(id)
 )
 
 CREATE TABLE cart (
     usuario_id INTEGER NOT NULL,
-    estampa_id INTEGER NOT NULL,
+    produto_id INTEGER NOT NULL,
     qtd INTEGER NOT NULL,
     data_adicao TEXT NOT NULL,
 
     FOREIGN KEY(user_id) REFERENCES usuarios(id),
-    FOREIGN KEY(estampa_id) REFERENCES estampas(id)
+    FOREIGN KEY(produto_id) REFERENCES produtos(id)
 );
 
+CREATE TABLE views (
+    user_id INTEGER NOT NULL,
+    tag_id INTEGER NOT NULL,
+    qtd_views INTEGER NOT NULL,
+
+    FOREIGN KEY(user_id) REFERENCES usuarios(id),
+    FOREIGN KEY(tag_id) REFERENCES tags(id)
+)
