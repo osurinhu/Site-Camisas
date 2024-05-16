@@ -17,8 +17,8 @@ CREATE TABLE produtos (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     produto_nome TEXT NOT NULL,
     produto_descricao TEXT,
-    price REAL NOT NULL,
-    discount REAL,
+    valor REAL NOT NULL,
+    desconto REAL,
     add_date TEXT NOT NULL
 )
 	
