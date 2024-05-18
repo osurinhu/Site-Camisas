@@ -1,3 +1,6 @@
+-- IMPORTANTE https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+
+
 -- TODO: Preciso pensar mais
 CREATE TABLE usuarios (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -12,6 +15,11 @@ CREATE TABLE usuarios (
     ultimo_login TEXT
 )
 
+CREATE TABLE endereco_user (
+    cep TEXT NOT NULL,
+    numero TEXT NOT NULL,    
+)
+
 -- TODO: Preciso pensar mais
 CREATE TABLE produtos (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -19,7 +27,8 @@ CREATE TABLE produtos (
     produto_descricao TEXT,
     valor REAL NOT NULL,
     desconto REAL,
-    add_date TEXT NOT NULL
+    data_adicao TEXT NOT NULL,
+    nota INTEGER NOT NULL
 )
 	
 CREATE TABLE tags (
@@ -61,6 +70,18 @@ CREATE TABLE views (
     user_id INTEGER NOT NULL,
     tag_id INTEGER NOT NULL,
     qtd_views INTEGER NOT NULL,
+
+    FOREIGN KEY(user_id) REFERENCES usuarios(id),
+    FOREIGN KEY(tag_id) REFERENCES tags(id)
+)
+
+CREATE TABLE compras (
+    user_id INTEGER NOT NULL,
+    produto_id INTEGER NOT NULL,
+    qtd INTEGER NOT NULL,
+    forma_pagamento TEXT NOT NULL,
+    data_compra TEXT NOT NULL,
+
 
     FOREIGN KEY(user_id) REFERENCES usuarios(id),
     FOREIGN KEY(tag_id) REFERENCES tags(id)
