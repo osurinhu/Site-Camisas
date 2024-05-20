@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 from cachelib.file import FileSystemCache
 import sqlite3
@@ -11,6 +11,14 @@ app.config.from_object(__name__)
 Session(app)
 
 
-@app.route("/login", methods=["GET","POST"])
+@app.route("/registrar", methods=["GET","POST"])
 def register():
-    return render_template("login.html");
+
+
+    if (request.method == 'GET') :
+        return render_template("registrar.html");
+
+    else:
+        if request.form.get("name") == None or request.form.get("email") == None
+
+        return

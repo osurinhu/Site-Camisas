@@ -13,7 +13,7 @@ CREATE TABLE usuarios (
     senha_ultima_mudanca TEXT,
     email_ultima_mudanca TEXT,
     ultimo_login TEXT
-)
+);
 
 CREATE TABLE endereco_usuario (
     usuario_id INTEGER NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE endereco_usuario (
     numero TEXT NOT NULL,
 
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
-)
+);
 
 CREATE TABLE favoritos (
     usuario_id INTEGER NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE favoritos (
 
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY(produto_id) REFERENCES produtos(id)
-)
+);
 
 CREATE TABLE cart (
     usuario_id INTEGER NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE cart (
 
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY(produto_id) REFERENCES produtos(id)
-)
+);
 
 CREATE TABLE compras (
     usuario_id INTEGER NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE compras (
 
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY(tag_id) REFERENCES tags(id)
-)
+);
 
 
 CREATE TABLE vendedores (
@@ -61,7 +61,7 @@ CREATE TABLE vendedores (
     verificado INTEGER,
 
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
-)
+);
 
 CREATE TABLE avaliacao_vendedor (
     vendedor_id INTEGER NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE avaliacao_vendedor (
 
     FOREIGN KEY(vendedor_id) REFERENCES vendedores(id),
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
-)
+);
 
 -- ************** PRODUTOS ****************
 
@@ -85,14 +85,14 @@ CREATE TABLE produtos (
     vendedor_id INTEGER NOT NULL,
 
     FOREIGN KEY(vendedor_id) REFERENCES vendedores(id)
-)
+);
 
 CREATE TABLE tags (
     produto_id INTEGER NOT NULL,
     tag TEXT NOT NULL,
 
     FOREIGN KEY(produto_id) REFERENCES produtos(id)
-)
+);
 
 CREATE TABLE views (
     usuario_id INTEGER NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE views (
 
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY(tag_id) REFERENCES tags(id)
-)
+);
 
 CREATE TABLE imagens_produtos(
 
@@ -112,7 +112,7 @@ CREATE TABLE imagens_produtos(
     imagem BLOB NOT NULL,
 
     FOREIGN KEY(produto_id) REFERENCES produtos(id)
-)
+);
 
 CREATE TABLE avaliacoes_produtos (
     id INTEGER NOT NULL AUTOINCREMENT,
@@ -123,7 +123,7 @@ CREATE TABLE avaliacoes_produtos (
 
     FOREIGN KEY(produto_id) REFERENCES produtos(id),
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
-)
+);
 
 CREATE TABLE imagens_avaliacoes(
 
@@ -133,4 +133,4 @@ CREATE TABLE imagens_avaliacoes(
     imagem BLOB NOT NULL,
 
     FOREIGN KEY(avaliacao_id) REFERENCES avaliacoes_produto(id)
-)
+);
