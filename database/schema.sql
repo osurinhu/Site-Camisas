@@ -4,8 +4,8 @@
 
 CREATE TABLE usuarios (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
     usuario TEXT NOT NULL,
-    numero_telefone TEXT,
     email TEXT NOT NULL,
     senha_hash TEXT NOT NULL,
 
