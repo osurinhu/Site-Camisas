@@ -105,7 +105,6 @@ CREATE TABLE views (
 );
 
 CREATE TABLE imagens_produtos(
-
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     produto_id INTEGER NOT NULL,
     img_descricao TEXT,
@@ -126,7 +125,6 @@ CREATE TABLE avaliacoes_produtos (
 );
 
 CREATE TABLE imagens_avaliacoes(
-
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     avaliacao_id INTEGER NOT NULL,
     img_descricao TEXT,

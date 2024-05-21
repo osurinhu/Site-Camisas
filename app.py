@@ -26,6 +26,10 @@ def register():
             return render_erro("Dados em falta", "400")
 
         con = sqlite3.connect("database.db")
+        cur = con.cursor()
 
+        if len(cur.execute("SELECT usuario FROM usuarios WHERE usuario = ?;")) != 0:
+
+            return render_erro("Usuario ja em uso","400")
 
         return "teste"
