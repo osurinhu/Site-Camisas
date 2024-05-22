@@ -1,13 +1,13 @@
 -- IMPORTANTE https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
 
--- ************ USUARIOs *******************
+-- ************ USUARIOS *******************
 
 CREATE TABLE usuarios (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY,
     nome TEXT NOT NULL,
-    usuario TEXT NOT NULL,
     email TEXT NOT NULL,
     senha_hash TEXT NOT NULL,
+    telefone TEXT NOT NULL,
 
     data_entrada TEXT NOT NULL,
     senha_ultima_mudanca TEXT,
@@ -56,7 +56,7 @@ CREATE TABLE compras (
 
 
 CREATE TABLE vendedores (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY,
     usuario_id INTEGER NOT NULL,
     verificado INTEGER,
 
@@ -76,7 +76,7 @@ CREATE TABLE avaliacao_vendedor (
 -- ************** PRODUTOS ****************
 
 CREATE TABLE produtos (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY,
     produto_nome TEXT NOT NULL,
     produto_descricao TEXT,
     valor REAL NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE views (
 );
 
 CREATE TABLE imagens_produtos(
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY,
     produto_id INTEGER NOT NULL,
     img_descricao TEXT,
     imagem BLOB NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE imagens_produtos(
 );
 
 CREATE TABLE avaliacoes_produtos (
-    id INTEGER NOT NULL AUTOINCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY,
     produto_id INTEGER NOT NULL,
     usuario_id INTEGER NOT NULL,
     nota INTEGER NOT NULL, -- 1 a 5
@@ -125,7 +125,7 @@ CREATE TABLE avaliacoes_produtos (
 );
 
 CREATE TABLE imagens_avaliacoes(
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY,
     avaliacao_id INTEGER NOT NULL,
     img_descricao TEXT,
     imagem BLOB NOT NULL,

@@ -13,7 +13,7 @@ Session(app)
 
 
 @app.route("/registrar", methods=["GET","POST"])
-def register():
+def registrar():
 
 
     if (request.method == 'GET') :
@@ -25,11 +25,24 @@ def register():
         if not all(request.form.values()):
             return render_erro("Dados em falta", "400")
 
-        con = sqlite3.connect("database.db")
-        cur = con.cursor()
+        #TODO: password
 
-        if len(cur.execute("SELECT usuario FROM usuarios WHERE usuario = ?;")) != 0:
 
-            return render_erro("Usuario ja em uso","400")
+        with sqlite3.connect("database/database.db") as con:
+            cur = con.cursor()
+            try: 
+                
+                #TODO: mexer com a database
+                if cur.execute("SELECT 1 FROM usuarios WHERE email = ?", (request.form.get("email"),)).fetchone():
+                    return "já existe"
+                else:
+                    return "n existe"
+
+
+            finally:
+                cur.close()
+
+
 
         return "teste"
+    
