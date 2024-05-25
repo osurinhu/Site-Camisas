@@ -7,7 +7,7 @@ CREATE TABLE usuarios (
     nome TEXT NOT NULL,
     email TEXT NOT NULL,
     senha_hash TEXT NOT NULL,
-    telefone TEXT NOT NULL,
+    telefone TEXT,
 
     data_entrada TEXT NOT NULL,
     senha_ultima_mudanca TEXT,
