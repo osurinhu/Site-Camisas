@@ -18,6 +18,12 @@
         <p>
             <label>
                 E-mail <input type="email" name="email">
+                {% if emailIndisponivel %}
+                    Email já em uso
+                {% endif %}
+                {% if emailInvalido %}
+                    Email inválido
+                {% endif %}
             </label>
         </p>
         <p>
@@ -28,10 +34,16 @@
         <p>
             <label>
                 Confirmar senha <input type="password" name="confirmSenha">
+                {% if senhasDiferente %}
+                    Senhas não correspondem
+                {% endif %}
             </label>
         </p>
         <button type="submit">Criar Conta</button>
     </form>
+    {% if infoFalta %}
+    Informações em falta
+    {% endif %}
 </body>
 
 </html>
