@@ -1,0 +1,133 @@
+.bg-menu{
+    background-color: #ffffff;
+}
+.navbar-nav li a{
+    color: #000000 !important;
+    border-bottom: 2px solid #e0e0e0 !important;
+}
+.navbar-nav li a:hover{
+    color: #3b3b3b !important;
+    border-bottom: 2px solid #575757cb !important;
+}
+.navbar-nav li{
+    padding: 20px 20px !important;
+}
+.dropdown-menu{
+    background-color: #ffffff;
+}
+.dropdown-menu li a:hover{
+    color: #FFF !important;
+    background-color: #161616cc;
+}
+
+
+/************* conteúdo *****************/
+.espacamento{
+    margin: 60px 0 !important;
+}
+.espacamento2{
+    border: 10px solid #dadada !important;
+    background-color: #dadada !important;
+}
+
+
+/******************button pesquisa**********/
+.btn-unipam{
+    color: #000000 !important;
+    background-color: #c9c9c9cc !important;
+}
+.btn-unipam:hover{
+    color: #000000;
+    background-color: #8f8f8f !important;
+    border: 1px solid #000000;
+}
+
+/************* card *****************/
+.bg-card{
+    background-color: #7a7a7a !important;
+    color: #FFF !important;
+}
+.btn-card{
+    color: #FFF !important;
+    background-color: #073b59 !important;
+    border: 1px solid #FFF !important;
+}
+.btn-card:hover{
+    color: #c2c2c2 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #000000 !important;
+}
+.col-sm{
+    margin-bottom: 5px !important;
+}
+.color{
+    color: #000;
+}
+.bg-color{
+    background-color: #3b3b3b;
+    margin: 20 0;
+}
+/************* navbar *****************/
+.alinhamento{
+    text-align: right;
+}
+.alinhamento2{
+    text-align: center;
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+}
+
+.product-title {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-size: 1em;
+    color: #333;
+}
+
+.product-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.favorite-btn, .cart-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.favorite-btn:hover .favorite-icon,
+.cart-btn:hover .cart-icon {
+    color: #ff6347; /* Cor ao passar o mouse */
+}
+
+.favorite-btn.active .favorite-icon {
+    color: #ff0000; /* Cor quando marcado como favorito */
+}
+
+.cart-btn.active .cart-icon {
+    color: #0000ff; /* Cor quando adicionado ao carrinho */
+}
