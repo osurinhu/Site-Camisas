@@ -9,6 +9,7 @@ CREATE TABLE usuarios (
     senha_hash TEXT NOT NULL,
     telefone TEXT,
 
+    email_verificado INTEGER, -- 1 = verificado, null/0 não verificado
     data_entrada TEXT NOT NULL,
     senha_ultima_mudanca TEXT,
     email_ultima_mudanca TEXT,
