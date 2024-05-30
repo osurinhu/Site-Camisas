@@ -1,0 +1,231 @@
+body{
+    margin: 0;
+    font-family: Poppins;
+}
+.container{
+    width: 900px;
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
+    padding-top: 10px;
+    transition: transform .5s;
+}
+
+.containerProduto{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h1.loader {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    font-size: 4.6875em;
+    color: transparent;
+    letter-spacing: 0.01em;
+    color: rgb(0, 207, 243);
+  }
+
+svg{
+    width: 30px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.iconeCarrinho{
+    position: relative;
+}
+.iconeCarrinho span{
+    position: absolute;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: 50%;
+    right: -20px;
+}
+.title{
+    color: white;
+}
+.listaProduto .item img{
+    border: 5px solid #000000;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    max-width: 400px;
+    background-color: aqua ;
+}
+.listaProduto{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.listaProduto .item{
+    background-color: #EEEEE6;
+    padding: 20px;
+    border-radius: 20px;
+}
+.listaProduto .item h2{
+    font-weight: 500;
+    font-size: large;
+}
+.listaProduto .item .price{
+    letter-spacing: 7px;
+    font-size: small;
+}
+.listaProduto .item button{
+    background-color: #353432;
+    color: #eee;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* cart */
+.abaCarrinho{
+    width: 400px;
+    background-color: #353432;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: .5s;
+}
+body.showCart .abaCarrinho{
+    right: 0;
+}
+body.showCart .container{
+    transform: translateX(-250px);
+}
+.abaCarrinho h1{
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+.abaCarrinho .btn{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.abaCarrinho button{
+    background-color: #E8BC0E;
+    border: none;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+}
+.abaCarrinho .close{
+    background-color: #eee;
+}
+.listaCarrinho .item img{
+    width: 100%;
+}
+.listaCarrinho .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+.listaCarrinho .quantity span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    color: #555;
+    cursor: pointer;
+}
+.listaCarrinho .quantity span:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    cursor: auto;
+}
+.listaCarrinho .item:nth-child(even){
+    background-color: #eee1;
+}
+.listaCarrinho{
+    overflow: auto;
+}
+.listaCarrinho::-webkit-scrollbar{
+    width: 0;
+}
+@media only screen and (max-width: 992px) {
+    .listaProduto{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+h1.loader {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    font-size: 4.6875em;
+    color: transparent;
+    letter-spacing: 0.01em;
+    color: rgb(0, 207, 243);
+  }
+  
+  .loader span {
+    text-shadow:
+      0 0 2px rgba(204, 208, 212,0.9),
+      0 15px 25px rgba(0, 0, 0, 0.3),
+      0 -2px 3px rgba(0, 0, 0, 0.1),
+      0 -5px 10px rgba(255, 255, 255, 0.5),
+      0 5px 10px rgba(0, 0, 0, 0.3),
+      0 3px 4px rgba(255, 255, 255, 0.2),
+      0 0 20px rgba(255, 255, 255, 0.45);
+    
+      animation: loading 0.85s ease-in-out infinite alternate;
+  }
+  
+  @keyframes loading {
+      to {text-shadow:
+      0 0 2px rgba(204, 208, 212,0.2),
+      0 0 3px rgba(0, 0, 0, 0.02),
+      0 0 0 rgba(0, 0, 0, 0),
+      0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 rgba(0, 0, 0, 0),
+      0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 rgba(255, 255, 255, 0);}
+  }
+  
+  .loader span:nth-child(2) {
+    animation-delay:0.15s;
+  }
+  
+  .loader span:nth-child(3) {
+    animation-delay:0.30s;
+  }
+  
+  .loader span:nth-child(4) {
+    animation-delay:0.45s;
+  }
+  
+  .loader span:nth-child(5) {
+    animation-delay:0.60s;
+  }
+  
+  .loader span:nth-child(6) {
+    animation-delay:0.75s;
+  }
+  
+  .loader span:nth-child(7) {
+    animation-delay:0.90s;
+  }
