@@ -1,0 +1,5 @@
+[default]
+SECRET_KEY = "https://www.youtube.com/watch?v=lznTQuGRBYs"
+EXTENSOES = [
+    "Site_Camisas.extensoes.set_session",
+]

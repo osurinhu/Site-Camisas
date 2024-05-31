@@ -1,21 +1,11 @@
-from ajudante import *
-from dotenv import load_dotenv
-from flask import Flask, flash, redirect, render_template, request, session
-from flask_session import Session
-from itsdangerous import URLSafeTimedSerializer
-import os
+from flask import Blueprint, flash, redirect, render_template, request, session
 import re
 import sqlite3
 from werkzeug.security import check_password_hash, generate_password_hash
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ["SECRET_KEY"]
-app.config['SESSION_TYPE'] = 'filesystem'
-app.config['SESSION_FILE_DIR'] = 'database/'
-app.config['SESSION_FILE_THRESHOLD'] = 500
+autenticacao_bp = Blueprint("autenticacao", __name__, template_folder="templates")
 
-
-@app.route("/registrar", methods=["GET","POST"])
+@autenticacao_bp.route("/registrar", methods=["GET","POST"])
 def registrar():
     if (request.method == 'GET') :
         return render_template("registrar.html")
@@ -76,6 +66,3 @@ def registrar():
                 cur.close()
         
     
-
-if __name__ == '__main__':
-    app.run(debug=True)
