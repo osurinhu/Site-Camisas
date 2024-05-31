@@ -6,12 +6,11 @@
         <title>Login</title>
     </head>
     <body>
-        <form>
-            <p>
-                <label>
-                    Usuario <input type="text" name="username">
-                </label>
-            </p>
+        {% set mensagens = get_flashed_messages(category_filter=["message"]) %}
+        {% for mensagem in mensagens %}
+            <p> {{ mensagem }} </p>
+        {% endfor %}
+        <form action="/entrar" method="post">
                 <p>
                     <label>
                         E-mail <input type="email" name="email">
@@ -19,7 +18,7 @@
                 </p>
                     <p>
                         <label>
-                            Senha <input type="password" name="password">
+                            Senha <input type="password" name="senha">
                         </label>
                         <p>
                             <a href="fornecaemail.html">Esqueceu a senha?</a>
@@ -27,5 +26,9 @@
                     </p>
                 <button type="submit"> Entrar</button>
         </form>
+        {% set mensagens = get_flashed_messages(category_filter=["info"]) %}
+        {% for mensagem in mensagens %}
+            <p> {{ mensagem }} </p>
+        {% endfor %}
     </body>
 </html>
