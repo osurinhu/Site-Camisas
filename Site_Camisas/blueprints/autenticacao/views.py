@@ -88,7 +88,7 @@ def entrar():
         with sqlite3.connect("database/database.db") as con:
             cur = con.cursor()
 
-            # TODO: mexer com a database
+            # Acessa a DB e pega id e senha de conta cujo email foi inserido pelo usuario
             try: 
                 query = cur.execute("SELECT id, senha_hash FROM usuarios WHERE email = ?", (user_input["email"],)).fetchall()
                 

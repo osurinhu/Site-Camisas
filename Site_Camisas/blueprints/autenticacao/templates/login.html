@@ -20,15 +20,16 @@
                         <label>
                             Senha <input type="password" name="senha">
                         </label>
-                        <p>
-                            <a href="fornecaemail.html">Esqueceu a senha?</a>
-                        </p>
+                    </p>
+                    {% set mensagens = get_flashed_messages(category_filter=["info"]) %}
+                    {% for mensagem in mensagens %}
+                        <p> {{ mensagem }} </p>
+                    {% endfor %}
+                    <p>
+                        <a href="fornecaemail.html">Esqueceu a senha?</a>
                     </p>
                 <button type="submit"> Entrar</button>
         </form>
-        {% set mensagens = get_flashed_messages(category_filter=["info"]) %}
-        {% for mensagem in mensagens %}
-            <p> {{ mensagem }} </p>
-        {% endfor %}
+
     </body>
 </html>

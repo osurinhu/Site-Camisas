@@ -8,6 +8,7 @@ CREATE TABLE usuarios (
     email TEXT NOT NULL,
     senha_hash TEXT NOT NULL,
     telefone TEXT,
+    is_admin INTEGER, -- 1 = é adm, null/0 user comum
 
     email_verificado INTEGER, -- 1 = verificado, null/0 não verificado
     data_entrada TEXT NOT NULL,
