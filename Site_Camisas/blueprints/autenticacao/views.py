@@ -58,7 +58,7 @@ def registrar():
                                 (user_input["nome"], user_input["email"], generate_password_hash(user_input["senha"])))
                     con.commit()
 
-                    # Conta foi criada TODO:
+                    # Conta foi criada, redirecionar ao login
                     flash("Conta Criada","message")
                     return redirect("/entrar")
 
@@ -107,6 +107,8 @@ def entrar():
         
 
         else:
+
+            # TODO: depois de logar
             session["user_id"] = query[0][0]
             return "logado"
 
