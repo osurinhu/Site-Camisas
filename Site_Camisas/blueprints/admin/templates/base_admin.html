@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ADMIN</title>
+        <title>ADMIN{% block titulo %}{% endblock %} </title>
     </head>
     <body>
-        <h1> Opções de Admin</h1>
+        <h1><a href="/admin">ADMIN</a></h1>
+        <h3> Opções de Admin</h3>
         <p>
             <ul>
                 <li><a href="/admin/adicionar_produto">Adicionar Produto</a></li>
@@ -14,6 +15,7 @@
                 <li><a href="/admin/remover_produto">Remover Produto</a></li>
             </ul>
         </p>
-        
+        {% block body %}{% endblock %}
+
     </body>
 </html>

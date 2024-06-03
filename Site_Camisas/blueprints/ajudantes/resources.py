@@ -24,6 +24,7 @@ def login_necessario(funcao):
         finally:
             cur.close()
 
+    wrapper.__name__ = funcao.__name__
     return wrapper
 
 
@@ -46,4 +47,6 @@ def apenas_admin(funcao):
             return render_erro("Acesso negado","403")
         else:
             return funcao()
+        
+    wrapper.__name__ = funcao.__name__
     return wrapper

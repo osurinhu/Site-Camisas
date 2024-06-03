@@ -1,0 +1,34 @@
+{% extends 'base_admin.html' %}
+
+{% block  titulo %}: Adicionar{% endblock %}
+
+{% block body %}
+
+    <h2>Adicionar Produto</h2>
+    <form action="/admin/adicionar_produto" method="post">
+
+        <p>
+            <label>
+            Nome do produto <input type="text" name="produto_nome" required>
+            </label>
+        </p>
+        <p>
+            <label>
+                Descrição do produto <textarea name="produto_descricao" required></textarea>
+            </label>
+        </p>
+        <p>
+            <label>
+                Preço do produto R$<input type="number" name="valor" min="0" required>
+            </label>
+        </p>
+        <p>
+            <label>
+                Desconto (porcentagem) <input type="number" name="desconto">
+            </label>
+        </p>
+
+        <button type="submit">Adicionar produto</button>
+    </form>
+
+{% endblock %}
