@@ -109,6 +109,6 @@ def entrar():
         else:
 
             # TODO: depois de logar
-            session["user_id"] = query[0][0]
+            session["usuario_id"] = query[0][0]
             return "logado"
 

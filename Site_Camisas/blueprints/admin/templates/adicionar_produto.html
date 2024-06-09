@@ -5,7 +5,7 @@
 {% block body %}
 
     <h2>Adicionar Produto</h2>
-    <form action="/admin/adicionar_produto" method="post">
+    <form action="/admin/adicionar_produto" method="post" enctype="multipart/form-data">
 
         <p>
             <label>
@@ -19,14 +19,25 @@
         </p>
         <p>
             <label>
-                Preço do produto R$<input type="number" name="valor" min="0" required>
+                Preço do produto R$<input type="number" step="0.01" name="valor" min="0" required>
             </label>
         </p>
         <p>
             <label>
-                Desconto (porcentagem) <input type="number" name="desconto">
+                Desconto (porcentagem) <input type="number" step="0.01" name="desconto">
             </label>
         </p>
+        <p>
+            <label>
+                Imagens <input type="file" multiple name="imagem" accept=".jpg,.jpeg">
+            </label>
+        </p>
+        <p>
+            <label>
+                Descrição das imagens (descrição geral para todas)<textarea name="img_descricao"></textarea>
+            </label>
+        </p>
+
 
         <button type="submit">Adicionar produto</button>
     </form>

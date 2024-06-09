@@ -1,0 +1,59 @@
+{% extends 'base_admin.html' %}
+
+{% block  titulo %}{% endblock %}
+
+{% block body %}
+
+    <style>
+        table,tr,td,th{
+            border: solid 2px;
+        }
+    </style>
+ 
+    <h3>Produtos do Usuario</h3>
+
+
+    {% for produto in query %}
+
+    <table style="margin: 1rem 0rem; ">
+
+        <tr>
+            <th>Id produto</th>
+            <td>{{ produto[0] }}</td>
+        </tr>
+        <tr>
+            <th>Nome produtro</th>
+            <td>{{ produto[1] }}</td>
+        </tr>
+        <tr>
+            <th>Descrição do Produto</th>
+            <td>{{ produto[2] }}</td>
+        </tr>
+        <tr>
+            <th>Valor</th>
+            <td>R${{ produto[3] }}</td>
+        </tr>
+        <tr>
+            <th>Desconto</th>
+            <td>{{ produto[4] }}%</td>
+        </tr>
+        <tr>
+            <th>Data de adcição</th>
+            <td>{{ produto[5] }}</td>
+        </tr>
+
+        <tr>
+            <th>Imagens</th>
+            {% for imagem_t in produto[7] %}
+            
+            <td>img id {{imagem_t[0]}} <img style="max-width:200px;" src="data:image/*;base64, {{imagem_t[2]}}" alt="{{imagem_t[1]}}"></td>
+
+            {% endfor %}
+
+        </tr>
+    </table>
+
+
+    {% endfor %}
+
+{% endblock %}

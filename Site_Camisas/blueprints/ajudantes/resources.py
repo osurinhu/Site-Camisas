@@ -7,7 +7,7 @@ def render_erro(mensagem="", codigo="400"):
 
 def login_necessario(funcao):
     def wrapper():
-        if not session.get("user_id"):
+        if not session.get("usuario_id"):
             return redirect(url_for("autenticacao.entrar"))
 
         # Conecta na DB 
@@ -16,7 +16,7 @@ def login_necessario(funcao):
         # Acessa DB
         try: 
             # Checa se conta existe com id da sessão
-            if cur.execute("SELECT 1 FROM usuarios WHERE id = ?", (session.get("user_id"),)).fetchone():
+            if cur.execute("SELECT 1 FROM usuarios WHERE id = ?", (session.get("usuario_id"),)).fetchone():
                 return funcao()
             else:
                 return redirect(url_for("autenticacao.entrar"))
@@ -37,7 +37,7 @@ def apenas_admin(funcao):
             cur = con.cursor()
         # Acessa DB
         try: 
-            is_admin = cur.execute("SELECT is_admin FROM usuarios WHERE id = ?", (session["user_id"],)).fetchall()
+            is_admin = cur.execute("SELECT is_admin FROM usuarios WHERE id = ?", (session["usuario_id"],)).fetchall()
         # Fecha DB
         finally:
             cur.close()
