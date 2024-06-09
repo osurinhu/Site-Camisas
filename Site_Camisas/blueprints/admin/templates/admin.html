@@ -41,16 +41,21 @@
             <th>Data de adcição</th>
             <td>{{ produto[5] }}</td>
         </tr>
+        <tr>
+            <th>Tags</th>
+            {% for tag in produto[7] %}
+            <td>{{ tag[0] }}</td>
+
+            {% endfor %}
+        </tr>
 
         <tr>
             <th>Imagens</th>
-            {% for imagem_t in produto[7] %}
-            
+            {% for imagem_t in produto[8] %}
             <td>img id {{imagem_t[0]}} <img style="max-width:200px;" src="data:image/*;base64, {{imagem_t[2]}}" alt="{{imagem_t[1]}}"></td>
-
             {% endfor %}
-
         </tr>
+
     </table>
 
 

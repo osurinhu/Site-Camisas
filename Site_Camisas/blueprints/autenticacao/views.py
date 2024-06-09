@@ -1,3 +1,4 @@
+from ..ajudantes.resources import login_necessario
 from flask import Blueprint, flash, redirect, render_template, request, session
 import re
 import sqlite3
@@ -110,5 +111,12 @@ def entrar():
 
             # TODO: depois de logar
             session["usuario_id"] = query[0][0]
-            return "logado"
+            return redirect("/")
 
+
+
+@login_necessario
+@autenticacao_bp.route("/sair", methods=["GET"])
+def sair():
+    session.clear()
+    return redirect("/entrar")
