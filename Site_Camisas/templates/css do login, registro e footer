@@ -1,3 +1,4 @@
+/* Estilos para o formulário de login/registro */
 body {
     background-color: #ffffff; /* Fundo branco */
     font-family: 'Poppins', sans-serif; /* Fonte Poppins */
@@ -43,6 +44,8 @@ button {
 button:hover {
     background-color: #45a049; /* Tom mais escuro de verde ao passar o mouse */
 }
+
+/* Estilos para o footer */
 html, body {
     height: 100%;
     margin: 0;
@@ -142,4 +145,3 @@ footer {
 .footer-column:nth-child(2) {
     margin-left: auto; /* Alinha "Contato" à direita */
 }
-
