@@ -63,44 +63,78 @@
             padding-top: 10px;
             border-top: 1px solid #444;
         }
+        /* ::marker é pra resolver um bug na navbar */
+        ::marker {
+        content: "";
+        }
+
+
     </style>
     <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-list" style="font-size: 1.75rem; color: black;"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Lançamentos</a></li>
+                      <li><a class="dropdown-item" href="#">Ofertas</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Masculino</a></li>
+                      <li><a class="dropdown-item" href="#">Feminino</a></li>
+                      <li><a class="dropdown-item" href="#">Infantil</a></li>
+                    </ul>
+                  </li>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    
+                    <form class="d-flex mx-auto p-2" style="width: 525px;" role="search">
+                        <input class="form-control me-2 shadow-sm outline-success" type="search" placeholder="Pesquisar" aria-label="Search" 
+                        style="background-color: #f1f1f1; border-style:solid; border-color: #cfcfcf;">
+                        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                      </form>
+
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        
+                        <li class="nav-item">
+                          <a class="nav-link" aria-hidden="true" href="#">
+                            <i class="bi bi-house-door" style="font-size: 1.75rem; color: black;"></i>
+                          </a>
+                        </li>
+    
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="bi bi-bag" style="font-size: 1.75rem; color: black;"></i>
+                          </a>
+                        </li>
+                        
+                         <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="bi bi-person" style="font-size: 2rem; color: black;"></i>
+                          </a>
+                        </li>
+
+                      </ul>
+
+                
+                    </div>
+              </div>
+        </nav>
+        
         <section class="espacamento2">
-            <div class="alinhamento">
-                <h6>Ajuda | Junte-se a nós | Entrar</h6>
+            <div class="alinhamento" style="background-color: #f8f9fa; text-align: end; padding-bottom: 0.2rem; padding-right: 1rem;">
+                <a href="#" style="color: black">Ajuda</a> | 
+                <a href="#" style="color: black"> Junte-se a nós</a> | 
+                <a href="#" style="color: black">Entrar </a>
             </div>
         </section>
-        <nav class="navbar navbar-expand-lg bg-menu">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="../img_temp/logo.webp"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Lançamentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ofertas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Masculino</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Feminino</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Infantil</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-unipam" type="submit">Pesquisar</button>
-                </form>
-                </div>
-            </div>
-        </nav>
+
         <section class="espacamento2">
             <div class="alinhamento2">
                 <h6>NOVAS CAMISAS</h6>  
