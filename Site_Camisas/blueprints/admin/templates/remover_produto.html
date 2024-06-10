@@ -1,0 +1,32 @@
+{% extends 'base_admin.html' %}
+
+{% block  titulo %}: Remover{% endblock %}
+
+{% block body %}
+    <h3>Remover Produto</h3>
+
+    {% for produto in query %}
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <td>{{ produto[0] }}</td>
+            </tr>
+            <tr>
+                <th>Nome do Produto</th>
+                <td>{{ produto[1] }}</td>
+            </tr>
+            <tr>
+                <th>Descrição do Produto</th>
+                <td>{{ produto[2] }}</td>
+            </tr>
+            <tr>
+                <td><a href="/admin/remover_produto?r={{ produto[0] }} ">Remover</a></td>
+            </tr>
+
+        </table>
+
+    {% endfor %}
+
+
+{% endblock %}

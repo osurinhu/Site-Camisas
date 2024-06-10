@@ -25,7 +25,6 @@ def admin():
         finally:
             cur.close()
 
-
     return render_template("admin.html",query=query)
 
 
@@ -86,12 +85,43 @@ def adicionar_produto():
                 for tag in user_inputs["tags"]:
                     if tag:
                         cur.execute("INSERT INTO tags (produto_id, tag) VALUES (?,?)",(produto_id,tag))
-                
-                
                 con.commit()
 
             finally:
                 cur.close()
 
-
         return redirect("/admin")
+    
+
+@admin_bp.route("/remover_produto", methods = ["GET"])
+@apenas_admin
+def remover_produto():
+
+    if int(request.args.get("r",False)):
+    
+        with sqlite3.connect("database/database.db") as con:
+            cur = con.cursor()
+        try:
+            if cur.execute("SELECT 1 FROM produtos WHERE id = ? AND vendedor_id = ?;",(request.args.get("r"), session["usuario_id"])).fetchone():
+                cur.execute("DELETE FROM produtos WHERE id = ?;",(request.args.get("r"),))
+                cur.execute("DELETE FROM tags WHERE produto_id = ?;",(request.args.get("r"),))
+                cur.execute("DELETE FROM imagens_produtos WHERE produto_id = ?;",(request.args.get("r"),))
+                con.commit()
+            else:
+               return render_erro("Id do produto não corresponde a um produto deste usuario", "403")
+        finally:
+            cur.close()
+
+        return redirect("/admin/remover_produto")
+
+    else:
+        with sqlite3.connect("database/database.db") as con:
+            cur = con.cursor()
+        try:
+
+            query = cur.execute("SELECT id, produto_nome, produto_descricao FROM produtos WHERE vendedor_id = ?;",(session["usuario_id"],)).fetchall()
+
+        finally:
+            cur.close()
+
+        return render_template("remover_produto.html", query = query)
