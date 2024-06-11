@@ -1,0 +1,148 @@
+/* Estilos para o formulário de login/registro */
+body {
+    background-color: #ffffff; /* Fundo branco */
+    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    background-color: #f5f5f5; /* Bege/cinza claro */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px; /* Ajuste conforme necessário */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+}
+
+button {
+    background-color: black; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+    transition: background-color 0.3s ease; /* Transição de cor suave */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+button:hover {
+    background-color: #45a049; /* Tom mais escuro de verde ao passar o mouse */
+}
+
+/* Estilos para o footer */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+footer {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 15px 0; 
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    padding: 5px; 
+}
+
+.footer-column img {
+    max-width: 250px; /* Aumentei o tamanho da logo */
+    margin-bottom: 10px;
+}
+
+.footer-column h3 {
+    margin-top: 0;
+    font-size: 1.1em; 
+}
+
+.footer-column p, 
+.footer-column ul, 
+.footer-column li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-column ul {
+    margin-top: 10px;
+}
+
+.footer-column li {
+    margin-bottom: 5px;
+}
+
+.footer-bottom {
+    background-color: #222;
+    color: #bbb;
+    text-align: center;
+    padding: 8px 0; 
+    margin-top: 15px; 
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinhando miniaturas à esquerda */
+}
+
+.product-info {
+    max-width: 200px; /* Ajuste conforme necessário */
+    margin-left: 20px; /* Espaço entre a imagem principal e as informações */
+    text-align: left; /* Garantindo que o texto está alinhado à esquerda */
+}
+
+.carousel {
+    max-width: calc(100% - 400px); /* Ajuste conforme necessário */
+    /* Isso garante que o carrossel não ultrapasse o tamanho máximo da tela */
+}
+
+.footer-column:nth-child(2) {
+    margin-left: auto; /* Alinha "Contato" à direita */
+}

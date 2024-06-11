@@ -1,6 +1,6 @@
 /* Estilos para o formulário de login/registro */
 body {
-    background-color: #ffffff; /* Fundo branco */
+    background-color: #ffffff /* Fundo branco */
     font-family: 'Poppins', sans-serif; /* Fonte Poppins */
     display: flex;
     justify-content: center;
@@ -10,16 +10,14 @@ body {
 }
 
 form {
-    background-color: #f5f5f5; /* Bege/cinza claro */
+    background-color: #e8e8e8; /* Bege/cinza claro */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     width: 300px; /* Ajuste conforme necessário */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;

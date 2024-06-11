@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lojinha</title>
-</head>
+{% block  titulo %}{% endblock %}
 
-<body>
-    <form action="/registrar" method="post">
+{% block body %}
+    <form action="/registrar" method="post" class="auth">
         <h1>Cadastrar Conta</h1>
         <p>
             <label>
@@ -37,6 +32,5 @@
     {% for mensagem in mensagens %}
         <p> {{ mensagem }} </p>
     {% endfor %}
-</body>
 
-</html>
+{% endblock %}

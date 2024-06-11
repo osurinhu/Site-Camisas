@@ -1,35 +1,33 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-    </head>
-    <body>
-        {% set mensagens = get_flashed_messages(category_filter=["message"]) %}
-        {% for mensagem in mensagens %}
-            <p> {{ mensagem }} </p>
-        {% endfor %}
-        <form action="/entrar" method="post">
+{% extends 'base.html' %}
+
+{% block  titulo %}: Entrar{% endblock %}
+
+{% block body %}
+
+    {% set mensagens = get_flashed_messages(category_filter=["message"]) %}
+    {% for mensagem in mensagens %}
+        <p> {{ mensagem }} </p>
+    {% endfor %}
+    <form action="/entrar" method="post" class="auth">
+        <h1>Entrar</h1>
+            <p>
+                <label>
+                    E-mail <input type="email" name="email">
+                </label>
+            </p>
                 <p>
                     <label>
-                        E-mail <input type="email" name="email">
+                        Senha <input type="password" name="senha">
                     </label>
                 </p>
-                    <p>
-                        <label>
-                            Senha <input type="password" name="senha">
-                        </label>
-                    </p>
-                    {% set mensagens = get_flashed_messages(category_filter=["info"]) %}
-                    {% for mensagem in mensagens %}
-                        <p> {{ mensagem }} </p>
-                    {% endfor %}
-                    <p>
-                        <a href="fornecaemail.html">Esqueceu a senha?</a>
-                    </p>
-                <button type="submit"> Entrar</button>
-        </form>
+                {% set mensagens = get_flashed_messages(category_filter=["info"]) %}
+                {% for mensagem in mensagens %}
+                    <p> {{ mensagem }} </p>
+                {% endfor %}
+                <p>
+                    <a href="fornecaemail.html">Esqueceu a senha?</a>
+                </p>
+            <button type="submit"> Entrar</button>
+    </form>
 
-    </body>
-</html>
+{% endblock %}
