@@ -1,0 +1,63 @@
+:root{
+    --branco-default: #f5f5f5;
+    --branco-cinza: #f5f5f5;
+    --font-color-default: #334340; 
+    --font-color-destaque: #212529;
+}
+
+body{
+    background-color: var(--branco-default);
+}
+
+.bg-destaque{
+    background-color: var(--branco-cinza);
+}
+
+
+.txt{
+    color: var(--font-color-default);
+}
+
+.txt-destaque{
+    color: var(--font-color-destaque);
+    font-weight: bold !important;
+}
+
+
+/* entrar registrar */
+
+
+.form-auth{
+    max-width: 35rem !important;
+    min height: ;
+}
+
+.form-auth h1{
+    padding-top: 5%;
+}
+
+.form-auth input{
+    border: solid 1px;
+    border-radius: 0.2rem;
+    width: 70%;
+    max-width: 25rem;
+    margin: 1rem 0;
+    height: 2rem;
+}
+
+.form-auth p{
+    width: 85%;
+    text-align: right;
+}
+.form-auth a{
+    text-decoration: none;
+}
+
+.submit-button{
+    background-color: var(--font-color-destaque);
+    color: var(--branco-cinza);
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 10%;
+}
