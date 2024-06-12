@@ -8,10 +8,9 @@
 {% for mensagem in mensagens %}
 <p> {{ mensagem }} </p>
 {% endfor %}
-<div class="d-flex min-vh-100 justify-content-center align-items-center">
-    <div class="container form-auth ">
+    <div class="centro">
 
-        <form action="/entrar" method="post" class="bg-destaque text-center">
+        <form action="/entrar" method="post" class="auth-form">
 
             <h1 class="txt-destaque">Entrar</h1>
 
@@ -20,15 +19,14 @@
 
             {% set mensagens = get_flashed_messages(category_filter=["info"]) %}
             {% for mensagem in mensagens %}
-            <p> {{ mensagem }} </p>
+            <p txt> {{ mensagem }} </p>
             {% endfor %}
             <p>
-                <a href="fornecaemail.html" class="txt pequeno">Esqueceu a senha?</a>
+                <a href="/registrar" class="txt" style="margin-right: 1rem;">Criar uma conta</a> <a href="fornecaemail.html" class="txt">Esqueceu a senha?</a>
             </p>
-            <button type="submit" class="submit-button text-center"> ENTRAR</button>
+            <button type="submit" class="submit-bnt text-center">CONTINUAR</button>
         </form>
     </div>
-</div>
 
 
 {% endblock %}

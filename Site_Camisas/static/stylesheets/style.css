@@ -1,145 +1,100 @@
+:root{
+    --branco-default: #ffffff;
+    --branco-cinza: #F5F5F5;
+    --font-color-default: #333643; 
+    --font-color-destaque: #212529;
+    --font-family-default: Arial, sans-serif;
+}
+
+body{
+    background-color: var(--branco-default);
+}
+
+.bg-destaque{
+    background-color: var(--branco-cinza);
+}
+
+.txt{
+    color: var(--font-color-default);
+    font-family: var(--font-family-default);
+}
+
+.txt-destaque{
+    color: var(--font-color-destaque);
+    font-weight: bold !important;
+    font-family: var(--font-family-default);
+}
+
+html{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+body{
+    height: 98%;
+    width: 99%;
+}
+
 /* Estilos para o formulário de login/registro */
-body {
-    background-color: #ffffff /* Fundo branco */
-    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+.centro {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100%;
+    width: 100%;
     margin: 0;
 }
 
-form {
-    background-color: #e8e8e8; /* Bege/cinza claro */
+.auth-form {
+    background-color: var(--branco-cinza); /* Bege/cinza claro */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     width: 300px; /* Ajuste conforme necessário */
+
 }
 
-input {
+.auth-form h1{
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.auth-form input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+    font-family: var()
 }
 
-button {
-    background-color: black; /* Verde */
+.auth-form a{
+    text-decoration: none;
+    font-size: small;
+}
+.auth-form p{
+    margin: 0;
+    text-align: center;
+}
+
+.submit-bnt {
+    background-color: var(--font-color-destaque); /* Verde */
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif; /* Fonte Poppins */
     transition: background-color 0.3s ease; /* Transição de cor suave */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    font-weight: bold;
 }
 
-button:hover {
-    background-color: #45a049; /* Tom mais escuro de verde ao passar o mouse */
+.auth-form .submit-bnt{
+    margin-top: 2rem;
 }
 
-/* Estilos para o footer */
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-.content {
-    flex: 1;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 15px 0; 
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-column {
-    flex: 1;
-    min-width: 200px;
-    padding: 5px; 
-}
-
-.footer-column img {
-    max-width: 250px; /* Aumentei o tamanho da logo */
-    margin-bottom: 10px;
-}
-
-.footer-column h3 {
-    margin-top: 0;
-    font-size: 1.1em; 
-}
-
-.footer-column p, 
-.footer-column ul, 
-.footer-column li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.footer-column ul {
-    margin-top: 10px;
-}
-
-.footer-column li {
-    margin-bottom: 5px;
-}
-
-.footer-bottom {
-    background-color: #222;
-    color: #bbb;
-    text-align: center;
-    padding: 8px 0; 
-    margin-top: 15px; 
-}
-
-.footer-bottom p {
-    margin: 0;
-    font-size: 0.9em;
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.thumbnails {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinhando miniaturas à esquerda */
-}
-
-.product-info {
-    max-width: 200px; /* Ajuste conforme necessário */
-    margin-left: 20px; /* Espaço entre a imagem principal e as informações */
-    text-align: left; /* Garantindo que o texto está alinhado à esquerda */
-}
-
-.carousel {
-    max-width: calc(100% - 400px); /* Ajuste conforme necessário */
-    /* Isso garante que o carrossel não ultrapasse o tamanho máximo da tela */
-}
-
-.footer-column:nth-child(2) {
-    margin-left: auto; /* Alinha "Contato" à direita */
+.submit-bnt:hover {
+    background-color: var(--font-color-default); /* Tom mais escuro de verde ao passar o mouse */
 }
