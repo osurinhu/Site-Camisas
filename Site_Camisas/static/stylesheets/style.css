@@ -31,8 +31,9 @@ html{
     justify-content: center;
 }
 body{
-    height: 98%;
-    width: 99%;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
 /* Estilos para o formulário de login/registro */

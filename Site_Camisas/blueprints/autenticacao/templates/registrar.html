@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block titulo %}{% endblock %}
+{% block titulo %}: Registrar{% endblock %}
 
 {% block body %}
 <div class="centro">
@@ -15,7 +15,9 @@
 
             <input type="password" name="confirmSenha" placeholder="Confirmar senha">
 
-            <button type="submit" class="submit-bnt">CRIAR CONTA</button>
+            <p><a href="/entrar" class="txt">Já possui uma conta?</a></p>
+
+            <button type="submit" class="submit-bnt">CONTINUAR</button>
         </form>
 </div>
 {% set mensagens = get_flashed_messages() %}
