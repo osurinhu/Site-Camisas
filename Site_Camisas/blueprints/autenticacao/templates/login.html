@@ -3,28 +3,35 @@
 {% block titulo %}: Entrar{% endblock %}
 
 {% block body %}
+    {% set mensagens = get_flashed_messages(category_filter=["message"]) %}
+    {% for mensagem in mensagens %}
+    <header>
+        <p class="msg"> {{ mensagem }} </p>
+    </header>
+    {% endfor %}
 
-{% set mensagens = get_flashed_messages(category_filter=["message"]) %}
-{% for mensagem in mensagens %}
-<p> {{ mensagem }} </p>
-{% endfor %}
+
     <div class="centro">
 
         <form action="/entrar" method="post" class="auth-form">
 
+
             <h1 class="txt-destaque">Entrar</h1>
 
-            <input type="email" name="email" placeholder="E-mail" class="txt">
-            <input type="password" name="senha" placeholder="Senha" class="txt">
+            <input type="email" name="email" placeholder="E-mail">
+            <input type="password" name="senha" placeholder="Senha">
+
+
+            <p>
+                <a href="/registrar" style="margin-right: 1rem;">Criar uma conta</a> <a
+                    href="fornecaemail.html">Esqueceu a senha?</a>
+            </p>
+            <button type="submit" class="submit-bnt">CONTINUAR</button>
 
             {% set mensagens = get_flashed_messages(category_filter=["info"]) %}
             {% for mensagem in mensagens %}
-            <p txt> {{ mensagem }} </p>
+            <p class="erro"> {{ mensagem }} </p>
             {% endfor %}
-            <p>
-                <a href="/registrar" class="txt" style="margin-right: 1rem;">Criar uma conta</a> <a href="fornecaemail.html" class="txt">Esqueceu a senha?</a>
-            </p>
-            <button type="submit" class="submit-bnt text-center">CONTINUAR</button>
         </form>
     </div>
 

@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
-
 {% block titulo %}: Registrar{% endblock %}
-
 {% block body %}
+
 <div class="centro">
         <form action="/registrar" method="post" class="auth-form">
             <h1 class="txt-destaque">Cadastrar Conta</h1>
@@ -15,14 +14,16 @@
 
             <input type="password" name="confirmSenha" placeholder="Confirmar senha">
 
-            <p><a href="/entrar" class="txt">Já possui uma conta?</a></p>
+            <p><a href="/entrar">Já possui uma conta?</a></p>
 
             <button type="submit" class="submit-bnt">CONTINUAR</button>
+
+            {% set mensagens = get_flashed_messages() %}
+            {% for mensagem in mensagens %}
+                <p> {{ mensagem }} </p>
+            {% endfor %}
         </form>
 </div>
-{% set mensagens = get_flashed_messages() %}
-{% for mensagem in mensagens %}
-    <p> {{ mensagem }} </p>
-{% endfor %}
+
 
 {% endblock %}
