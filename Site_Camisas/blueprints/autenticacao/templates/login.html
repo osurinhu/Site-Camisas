@@ -3,14 +3,6 @@
 {% block titulo %}: Entrar{% endblock %}
 
 {% block body %}
-    {% set mensagens = get_flashed_messages(category_filter=["message"]) %}
-    {% for mensagem in mensagens %}
-    <header>
-        <p class="msg"> {{ mensagem }} </p>
-    </header>
-    {% endfor %}
-
-
     <div class="centro">
 
         <form action="/entrar" method="post" class="auth-form">

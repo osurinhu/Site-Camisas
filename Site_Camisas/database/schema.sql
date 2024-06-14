@@ -53,7 +53,6 @@ CREATE TABLE compras (
 
 
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id),
-    FOREIGN KEY(tag_id) REFERENCES tags(id)
 );
 
 

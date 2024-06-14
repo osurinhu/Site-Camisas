@@ -111,6 +111,7 @@ def entrar():
 
             # TODO: depois de logar
             session["usuario_id"] = query[0][0]
+            flash("Conectado", "message")
             return redirect("/")
 
 
@@ -119,4 +120,5 @@ def entrar():
 @autenticacao_bp.route("/sair", methods=["GET"])
 def sair():
     session.clear()
+    flash("Conta desconectada", "message")
     return redirect("/entrar")

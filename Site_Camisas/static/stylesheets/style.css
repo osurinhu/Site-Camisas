@@ -32,6 +32,85 @@ body{
     font-family: var(--font-family-default);
 }
 
+
+
+/* Estilos para a navbar */
+
+.nav-meio{
+    background-color: var(--branco-default) !important;
+    margin: 0;
+    padding: 0.5rem !important;
+    height: fit-content;
+}
+
+
+.nav-meio img{
+    height: 54px;
+}
+
+.nav-meio li a{
+    width: 100%;
+    text-align: center;
+}
+    
+.nav-meio a{
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+}
+
+.nav-meio input{
+    background-color: var(--branco-cinza);
+    border-radius: 20px;
+
+}
+
+.save{
+    margin-right: 1.5rem;
+}
+
+.nav-meio i{
+    color: var(--font-color-default);
+    font-size: x-large;
+ 
+    margin: 0 1rem;
+}
+
+.nav-meio .save i{
+    font-size: large;
+}
+
+
+.nav-meio i:hover{
+
+    -webkit-text-stroke: 1px;
+}
+
+.nav-meio li{
+    list-style-type: none;
+}
+
+
+
+.nav-baixo{
+    margin-top: 70px !important;
+    background-color: var(--branco-cinza) !important;
+    margin: 0;
+    padding: 0 !important;
+}
+
+.nav-baixo ul{
+    width: 100%;
+}
+
+.nav-baixo .nav-item{
+    margin: 0 5%;
+}
+
+
+
+
 /* Estilos para o formulário de login/registro */
 .centro {
     display: flex;
@@ -39,7 +118,7 @@ body{
     align-items: center;
     width: 100%;
     margin: 0;
-    height: 100vh;
+    height: 90vh;
 }
 
 .auth-form {
