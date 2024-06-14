@@ -128,14 +128,14 @@ a {
   font-weight: bold;
 }
 
-.shopping-cart {
+.carrinho {
   display: grid;
-  grid-template-columns: repeat(1, 320px);
+  grid-template-columns: repeat(1, 450px);
   justify-content: center;
   gap: 15px;
 }
 
-.cart-item {
+.itemCarrinho{
   border: 2px solid #212529;
   border-radius: 5px;
   display: flex;
@@ -151,7 +151,7 @@ a {
 .title-price {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 150px;
 }
 
 .cart-item-price {
