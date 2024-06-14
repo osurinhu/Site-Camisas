@@ -1,3 +1,4 @@
+/* Geral */
 :root{
     --branco-default: #ffffff;
     --branco-cinza: #F5F5F5;
@@ -6,9 +7,6 @@
     --font-family-default: Arial, sans-serif;
 }
 
-body{
-    background-color: var(--branco-default);
-}
 
 .bg-destaque{
     background-color: var(--branco-cinza);
@@ -28,13 +26,13 @@ body{
     height: 100vh;
     width: 100%;
     margin: 0;
+
+    background-color: var(--branco-default);
     color: var(--font-color-default) !important;
     font-family: var(--font-family-default);
 }
 
-
-
-/* Estilos para a navbar */
+/* Navbar */
 
 .nav-meio{
     background-color: var(--branco-default) !important;
@@ -42,7 +40,6 @@ body{
     padding: 0.5rem !important;
     height: fit-content;
 }
-
 
 .nav-meio img{
     height: 54px;
@@ -82,7 +79,6 @@ body{
     font-size: large;
 }
 
-
 .nav-meio i:hover{
 
     -webkit-text-stroke: 1px;
@@ -91,8 +87,6 @@ body{
 .nav-meio li{
     list-style-type: none;
 }
-
-
 
 .nav-baixo{
     margin-top: 70px !important;
@@ -109,17 +103,64 @@ body{
     margin: 0 5%;
 }
 
+.msg{
+    background-color: cornflowerblue;
+    color: var(--branco-default);
+    font-weight: bold;
+    border-radius: 0 0 2px 2px;
+    margin: 0 0;
+    text-align: center;
+    width: 100%;
+
+}
+
+/* Footer */
+
+footer{
+    max-width: 100%;
+    background-color: var(--font-color-destaque);
+    color: var(--branco-cinza);
+}
+footer img{
+    width: 150px;
+    margin-top: 30px;
+}
+
+footer .row{
+    max-width: 100%;
+}
+
+footer .col{
+    margin-left: 20px;
+
+}
+
+footer li{
+    list-style-type: none;
+}
+
+footer ul{
+    padding: 0;
+}
+
+footer a{
+    text-decoration: none;
+    color: inherit;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
 
 
-
-/* Estilos para o formulário de login/registro */
+/* Formulário de login/registro */
 .centro {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0;
-    height: 90vh;
+    height: 85vh;
 }
 
 .auth-form {
@@ -190,13 +231,16 @@ body{
     margin-top: 20px !important;
 }
 
-.msg{
-    background-color: cornflowerblue;
-    color: var(--branco-default);
-    font-weight: bold;
-    border-radius: 0 0 2px 2px;
-    margin: 0 0;
-    text-align: center;
-    width: 100%;
+/* erro */
 
+.gato img{
+    height: 300px;
+    margin-bottom: 20vh;
 }
+
+.gato h1{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+

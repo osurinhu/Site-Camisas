@@ -1,5 +1,16 @@
+{% extends 'base.html' %}
 
-<h1>Erro {{ codigo }} </h1>
+{% block titulo %}: Erro {{ codigo }} {% endblock %}
 
-<h3> {{ mensagem }} </h3>
+{% block body %}
 
+    <div class="d-flex flex-column justify-content-center gato">
+
+        <h1 class="mx-auto">ERRO {{ codigo }} </h1>
+
+        <h3 class="mx-auto"> {{ mensagem }} </h3>
+
+        <img src="https://cataas.com/cat/says/EITA?fontSize=50&fontColor=white" alt="gato pq sim" class="mx-auto">
+        
+    </div>
+{% endblock %}
