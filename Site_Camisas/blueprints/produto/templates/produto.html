@@ -4,35 +4,55 @@
 
 {% block body %}
 
+<script>
+    function mudarValor(act) {
+        if (act == '+') {
+            if (document.getElementById('qtd').value < 99)
+                document.getElementById('qtd').value++
+        }
+        else if (act == '-') {
+            if (document.getElementById('qtd').value > 0) {
+                document.getElementById('qtd').value--
+            }
+        }
+    }
+</script>
+
+
 <div class="container">
-    <div class="row" style="margin: 2rem 0;">
+    <div class="row" style="margin: 3rem 0;">
 
         <div class="col-sm">
 
 
             <div id="produtoPrincial" class="carousel slide">
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="https://i.ytimg.com/vi/cq7ccEkTHVo/hq720.jpg?sqp=-oaymwEYCJUDENAFSFryq4qpAwoIARUAAIhC0AEB&rs=AOn4CLCBPVGAuglHtKCwwXSK_nSx9TLn-g" class="d-block w-100" alt="yuta na africa">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuvMVN1-wXIsnPF_F6yWKFLs-dEyVG-FFzaBMTW1Z8VQFCxUgPYPxNgTLBTKKmDEPOPik&usqp=CAU" class="d-block w-100" alt="enquanto todo mundo morria em shibuya">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://media.tenor.com/jpjqu_7ib2gAAAAe/white-guy-african-shirt.png" class="d-block w-100" alt="expansao de dominio">
-                  </div>
+                    <div class="carousel-item active">
+                        <img src="https://i.ytimg.com/vi/cq7ccEkTHVo/hq720.jpg?sqp=-oaymwEYCJUDENAFSFryq4qpAwoIARUAAIhC0AEB&rs=AOn4CLCBPVGAuglHtKCwwXSK_nSx9TLn-g"
+                            class="d-block w-100" alt="yuta na africa">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuvMVN1-wXIsnPF_F6yWKFLs-dEyVG-FFzaBMTW1Z8VQFCxUgPYPxNgTLBTKKmDEPOPik&usqp=CAU"
+                            class="d-block w-100" alt="enquanto todo mundo morria em shibuya">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://media.tenor.com/jpjqu_7ib2gAAAAe/white-guy-african-shirt.png"
+                            class="d-block w-100" alt="expansao de dominio">
+                    </div>
                 </div>
 
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#produtoPrincial" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#produtoPrincial"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#produtoPrincial" data-bs-slide="next">
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#produtoPrincial"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                  </button>
-              </div>
+                </button>
+            </div>
 
 
 
@@ -42,19 +62,32 @@
 
         <div class="col-sm info-produto">
 
-            <h1>YUTA NA AFRICA ENQUANTO GERAL MORRIA</h1>
-            
-            <h3 style="font-weight: 500 ;">De:&emsp;<s>R$ 120.00</s></h3>
+            <h1 class="nome">JJK - YUTA OKKOTSU - TREINAMENTO NA AFRICA - PASSINHO DO MANO JAMAICA</h1>
+            <p>por Lotuz</p>
 
-            
-            <h2><small style="font-weight: 500;">Por:</small>&ensp;R$ 119.99&emsp;<small class="desconto-produto">-01%</small> </h2>
+            <h3 style="font-weight: 300 ; color: #7f7f7f;">De:&emsp;<s>R$ 120.00</s></h3>
 
-            <div class="d-flex qtd-produto">
-                <button>-</button>
-                <div>1</div>
-                <button>+</button>
-            </div>
 
+            <h2><small style="font-weight: 500;">Por:</small>&ensp;R$ 119.99&emsp;<small
+                    class="desconto-produto">-01%</small>
+            </h2>
+
+                <form action="/produto" method="post" style="width: 100%;">    
+                    <div class="d-flex" style="margin-top: 2rem;"">
+                        <div class="qtd-produto">
+                            <input type="hidden" name="produto_id" value="foo">
+
+                            <button class="qtd-btn" type="button" onclick="mudarValor('-')">-</button>
+                            <input type="number" name="qtd" id="qtd" value="1">
+                            <button class="qtd-btn" type="button" onclick="mudarValor('+')">+</button>
+                        </div>
+
+                        <button class="submit-bnt" type="submit">ADICIONAR AO CARRINHO</button>
+                    </div>
+                </form>
+
+
+                <p style="margin-top: 3rem;">Yuta Okkotsu (乙おっ骨こつ憂ゆう太た Okkotsu Yūta?) is a major supporting character in the Jujutsu Kaisen series and the main protagonist of its prequel series, Jujutsu Kaisen 0: Jujutsu High. He was initially a special grade cursed human haunted by his late childhood friend, Rika Orimoto. Satoru Gojo mentored Yuta and enrolled him at Tokyo Jujutsu High.</p>
         </div>
 
 
