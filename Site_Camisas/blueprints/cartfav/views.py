@@ -1,6 +1,6 @@
 from ..ajudantes.resources import login_necessario
 from flask import Blueprint, redirect, request, render_template, session
-import sqlite3
+import sqlite3 
 
 
 

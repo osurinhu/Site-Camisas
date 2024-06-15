@@ -313,3 +313,69 @@ footer a:hover{
   background-color: var(--branco-cinza);
 
 }
+
+
+/* Pagina do produto*/
+#produtoPrincial .carousel-item{
+
+    width: 600px;
+    height: 600px;
+}
+
+
+#produtoPrincial .carousel-item img{
+    width: 100%;
+    height: auto;
+
+}
+
+.info-produto{
+    margin-left: 2rem;
+}
+
+.info-produto nome{
+    line-height: 2.3rem;
+
+    color: var(--font-color-destaque);
+}
+
+.info-produto h3{
+    margin-top: 3rem;
+    margin-bottom: 0;
+
+    color: var(--font-color-default);
+}
+
+.info-produto h2{
+    margin-top: 0;
+
+    font-size: 1.6rem;
+    color: var(--font-color-default);
+}
+
+.desconto-produto{
+
+    background-color: var(--font-color-default);
+    color: var(--branco-cinza);
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.qtd-produto button{
+    text-align: center;
+    height: 40px;
+    width: 40px;
+
+    margin: 0 1rem;
+
+    background-color: var(--branco-cinza);
+
+    border-radius: 8px;
+    border: solid 1px var(--font-color-default);
+}
+
+.qtd-produto div{
+    text-align: center;
+    height: 40px;
+    width: 40px;
+}
