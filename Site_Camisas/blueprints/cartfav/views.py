@@ -22,7 +22,7 @@ def carrinho():
                 q_produto = cur.execute("SELECT produto_nome, produto_descricao, valor, desconto, vendedor_id FROM produtos WHERE id = ?", (item[0],)).fetchone()
                 q_vendedor = cur.execute("SELECT nome FROM usuarios WHERE id = (SELECT usuario_id FROM vendedores WHERE id = ?);",(q_produto[4],)).fetchone()
                 q_imagem = cur.execute("SELECT img_descricao, imagem FROM imagens_produtos WHERE produto_id = ?;",(item[0],)).fetchone()
-                total = round(q_produto[2]*(1+(q_produto[3]/100))*item[1], 2)
+                total = round(q_produto[2]*(1-(q_produto[3]/100))*item[1], 2)
                 subtotal += total
                 itens[i] = itens[i] + q_produto + (total,) + q_vendedor + q_imagem
                 i+=1
