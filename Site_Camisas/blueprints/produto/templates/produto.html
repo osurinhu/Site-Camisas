@@ -19,6 +19,10 @@
 </script>
 
 
+
+<header id="msg-cart"></header>
+
+
 <div class="container">
     <div class="row" style="margin: 3rem 0;">
 
@@ -27,18 +31,25 @@
 
             <div id="produtoPrincial" class="carousel slide">
                 <div class="carousel-inner">
+
+                    {% for idx, imagem in enumerate(imagens): %}
+                    {% if idx == 0 %}
+
+
                     <div class="carousel-item active">
-                        <img src="https://i.ytimg.com/vi/cq7ccEkTHVo/hq720.jpg?sqp=-oaymwEYCJUDENAFSFryq4qpAwoIARUAAIhC0AEB&rs=AOn4CLCBPVGAuglHtKCwwXSK_nSx9TLn-g"
-                            class="d-block w-100" alt="yuta na africa">
+                        <img src="data:image/*;base64, {{imagem[1]}}" alt="{{imagem[0]}}" class="d-block w-100">
                     </div>
+
+
+                    {% else %}
+
                     <div class="carousel-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuvMVN1-wXIsnPF_F6yWKFLs-dEyVG-FFzaBMTW1Z8VQFCxUgPYPxNgTLBTKKmDEPOPik&usqp=CAU"
-                            class="d-block w-100" alt="enquanto todo mundo morria em shibuya">
+                        <img src="data:image/*;base64, {{imagem[1]}}" alt="{{imagem[0]}}" class="d-block w-100">
                     </div>
-                    <div class="carousel-item">
-                        <img src="https://media.tenor.com/jpjqu_7ib2gAAAAe/white-guy-african-shirt.png"
-                            class="d-block w-100" alt="expansao de dominio">
-                    </div>
+
+
+                    {% endif %}
+                    {% endfor %}
                 </div>
 
 
@@ -62,37 +73,80 @@
 
         <div class="col-sm info-produto">
 
-            <h1 class="nome">JJK - YUTA OKKOTSU - TREINAMENTO NA AFRICA - PASSINHO DO MANO JAMAICA</h1>
-            <p>por Lotuz</p>
+            <h1 class="nome">{{ produto_nome }}</h1>
+            <p>por {{ vendedor }}</p>
 
-            <h3 style="font-weight: 300 ; color: #7f7f7f;">De:&emsp;<s>R$ 120.00</s></h3>
+            <h3 style="font-weight: 300 ; color: #7f7f7f;">De:&emsp;<s>R$ {{ valor }}</s></h3>
 
 
-            <h2><small style="font-weight: 500;">Por:</small>&ensp;R$ 119.99&emsp;<small
-                    class="desconto-produto">-01%</small>
+            <h2><small style="font-weight: 500;">Por:</small>&ensp;R$ {{ atual }}&emsp;<small
+                    class="desconto-produto">-{{ desconto }}%</small>
             </h2>
 
-                <form action="/produto" method="post" style="width: 100%;">    
-                    <div class="d-flex" style="margin-top: 2rem;"">
-                        <div class="qtd-produto">
-                            <input type="hidden" name="produto_id" value="foo">
-
-                            <button class="qtd-btn" type="button" onclick="mudarValor('-')">-</button>
-                            <input type="number" name="qtd" id="qtd" value="1">
-                            <button class="qtd-btn" type="button" onclick="mudarValor('+')">+</button>
-                        </div>
-
-                        <button class="submit-bnt" type="submit">ADICIONAR AO CARRINHO</button>
-                    </div>
-                </form>
+            <form id="formcart" style="width: 100%;">
+                <div class="d-flex" style="margin-top: 2rem;"">
+                        <div class=" qtd-produto">
 
 
-                <p style="margin-top: 3rem;">Yuta Okkotsu (乙おっ骨こつ憂ゆう太た Okkotsu Yūta?) is a major supporting character in the Jujutsu Kaisen series and the main protagonist of its prequel series, Jujutsu Kaisen 0: Jujutsu High. He was initially a special grade cursed human haunted by his late childhood friend, Rika Orimoto. Satoru Gojo mentored Yuta and enrolled him at Tokyo Jujutsu High.</p>
+                    <input type="hidden" name="act" value="insert">
+                    <input type="hidden" name="produto_id" value="{{ produto_id }}">
+
+                    <button class="qtd-btn" type="button" onclick="mudarValor('-')">-</button>
+                    <input type="number" name="qtd" id="qtd" value="1">
+                    <button class="qtd-btn" type="button" onclick="mudarValor('+')">+</button>
+
+
+                </div>
+
+                <button class="submit-bnt" type="submit">ADICIONAR AO CARRINHO</button>
         </div>
+        </form>
 
 
-
+        <p style="margin-top: 3rem;">{{ produto_descricao }}</p>
     </div>
+
+
+
 </div>
+</div>
+
+
+<script>
+    const cart_form = document.getElementById('formcart');
+
+    cart_form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(this)
+
+        fetch("/cartqtd", {
+
+            method: 'post',
+            body: formData
+
+        }).then(function (response) {
+            return response.text();
+        }).then(function (text) {
+            console.log(text);
+
+            const msgHeader = document.getElementById('msg-cart');
+            msgHeader.innerHTML += '<p class="msg"> Carrinho atualizado! </p>';
+
+            setTimeout(
+                function(){
+                    msgHeader.innerHTML = '';  
+                },2000)
+        }).catch(function(error) {
+            console.error(error);
+        })
+    });
+
+/*
+    a fazer um poema sobre como eu odeio javascript, mas me falta palavras e criatividade para tal feito
+
+    segue a musica que estou ouvindo no momento https://www.youtube.com/watch?v=omNMowwd84E
+*/
+</script>
 
 {% endblock %}

@@ -1,5 +1,5 @@
 from ..ajudantes.resources import login_necessario
-from flask import Blueprint, redirect, request, render_template, session
+from flask import Blueprint, redirect, request, render_template, session, jsonify
 import sqlite3 
 
 
@@ -47,28 +47,71 @@ def cartrm():
             finally:
                 cur.close
         return redirect("carrinho")
-    
-@cartfav_bp.route("/cartqtd")
+
+
+
+
+
+
+
+@cartfav_bp.route("/cartqtd", methods=["GET","POST"])
 @login_necessario
 def cartqtd():
-    if not (request.args.get("id") and isinstance(int(request.args.get("qtd")),int) and (request.args.get("act") == "add" or request.args.get("act") == "sub")):
-        return redirect("/carrinho")
-    
+
+    if request.method == "GET":
+            
+            if not (request.args.get("id") and isinstance(int(request.args.get("qtd")),int) and (request.args.get("act") == "add" or request.args.get("act") == "sub")):
+                return redirect("/carrinho")
+            
+            else:
+                if request.args.get("act") == "add":
+                    n_qtd = int(request.args.get("qtd")) + 1
+                else:
+                    n_qtd = int(request.args.get("qtd")) - 1
+                    if n_qtd < 0:
+                        n_qtd = 0
+
+                with sqlite3.connect("database/database.db") as con:
+                    try:
+                        cur = con.cursor()
+                        cur.execute("UPDATE cart SET qtd = ? WHERE produto_id = ? AND usuario_id = ?;",(n_qtd, request.args.get("id"), session["usuario_id"]))
+                        con.commit()
+
+                    finally:
+                        cur.close
+                    return redirect("/carrinho")
+
     else:
-        if request.args.get("act") == "add":
-            n_qtd = int(request.args.get("qtd")) + 1
-        else:
-            n_qtd = int(request.args.get("qtd")) - 1
-            if n_qtd < 0:
-                n_qtd = 0
+        inputs = {
+            "act": request.form.get("act"),
+            "produto_id": request.form.get("produto_id"),
+            "qtd": request.form.get("qtd")
+        }
 
-        with sqlite3.connect("database/database.db") as con:
-            try:
-                cur = con.cursor()
-                cur.execute("UPDATE cart SET qtd = ? WHERE produto_id = ? AND usuario_id = ?;",(n_qtd, request.args.get("id"), session["usuario_id"]))
-                con.commit()
+        if not all(inputs.values()):
+            return jsonify({"message": "falta info"}), 400
+        
+        if inputs["act"] == "insert":
 
-            finally:
-                cur.close
-            return redirect("/carrinho")
+            with sqlite3.connect("database/database.db") as con:
+                try:
+                    cur = con.cursor()
+                    if cur.execute("SELECT 1 FROM cart WHERE produto_id = ? AND usuario_id = ?;",(inputs["produto_id"],session["usuario_id"])).fetchone():
+
+                        # Atualizar db
+                        cur.execute("UPDATE cart SET qtd = ? WHERE produto_id = ? AND usuario_id = ?",(request.form.get("qtd"),inputs["produto_id"],session["usuario_id"]))
+                        return jsonify([{"message":"updatado"}])
+
+                    else:
+
+                        cur.execute("INSERT INTO cart (usuario_id, produto_id, qtd, data_adicao) VALUES (?,?,?,datetime('now'));", (session["usuario_id"], inputs["produto_id"], inputs["qtd"]))
+                        return jsonify([{"message":"adicionado"}])
+
+                    con.commit()
+
+                finally:
+                    cur.close
+
+            
+
     
