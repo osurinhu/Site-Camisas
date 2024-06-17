@@ -32,7 +32,7 @@ def index():
                 custom += (d_produto,)
 
 
-            q_lotuz = cur.execute("SELECT id, produto_nome, valor, desconto FROM produtos WHERE vendedor_id = (SELECT id FROM vendedores WHERE usuario_id IN (SELECT id FROM usuarios WHERE nome LIKE '%lotuz%'))").fetchall()
+            q_lotuz = cur.execute("SELECT id, produto_nome, valor, desconto FROM produtos WHERE produto_nome LIKE '%' || 'LOTUZ' || '%'").fetchall()
 
             lotuz = ()
             for produto in q_lotuz:
