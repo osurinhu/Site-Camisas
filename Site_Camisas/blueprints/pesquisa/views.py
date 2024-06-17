@@ -16,34 +16,34 @@ def pesquisa():
             
 
             q_pesquisa = cur.execute("""SELECT 
-    p.id, 
-    p.produto_nome, 
-    p.valor, 
-    p.desconto 
+    produtos.id, 
+    produtos.produto_nome, 
+    produtos.valor, 
+    produtos.desconto 
 FROM 
-    produtos p
+    produtos
 WHERE 
-    p.id IN (
+    produtos.id IN (
         SELECT produto_id 
         FROM tags 
         WHERE tag LIKE '%' || ? || '%'
     )
-    OR p.id IN (
+    OR produtos.id IN (
         SELECT id 
         FROM produtos 
         WHERE produto_nome LIKE '%' || ? || '%'
     )
-    OR p.id IN (
+    OR produtos.id IN (
         SELECT id 
         FROM produtos 
         WHERE produto_descricao LIKE '%' || ? || '%'
     )
-    OR p.id IN (
-        SELECT p.id
-        FROM produtos p
-        JOIN vendedores v ON p.vendedor_id = v.id
-        JOIN usuarios u ON v.usuario_id = u.id
-        WHERE u.nome LIKE '%' || ? || '%'
+    OR produtos.id IN (
+        SELECT produtos.id
+        FROM produtos
+        JOIN vendedores ON produtos.vendedor_id = vendedores.id
+        JOIN usuarios ON vendedores.usuario_id = usuarios.id
+        WHERE usuarios.nome LIKE '%' || ? || '%'
     );
 """,(request.args.get("q"),request.args.get("q"),request.args.get("q"),request.args.get("q"))).fetchall()
 

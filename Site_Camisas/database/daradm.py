@@ -3,7 +3,7 @@ import sqlite3
 def main():
 
 
-    id = 1
+    id = 2
 
     with sqlite3.connect("./database.db") as con:
         cur = con.cursor()

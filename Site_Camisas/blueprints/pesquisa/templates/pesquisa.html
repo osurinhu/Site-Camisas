@@ -19,7 +19,7 @@
 
         <div class="col">
             <div class="card" style="width: fit-content">
-                <div class="img-bg">
+                <div class="img-bg" style="min-height: 248px;">
                     <a href="/produto/{{ produto['id'] }}"><img src="data:image/*;base64, {{ produto['imagem'] }}"
                             class="card-img-top" alt="{{ produto['descricao_img'] }}"></a>
                 </div>
@@ -40,7 +40,7 @@
                         <div class="d-flex justify-content-evenly">
 
                             <form id="form_f_{{ produto['id'] }}">
-                                <a onclick="qtdcart('form_c_{{ produto['id'] }}');""><i
+                                <a onclick="favadd('form_c_{{ produto['id'] }}');""><i
                                                             class=" bi bi-heart"></i></a>
                             </form>
 

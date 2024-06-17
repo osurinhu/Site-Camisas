@@ -30,7 +30,7 @@ def login_necessario(funcao):
 
 def login_necessario_fetch(funcao):
     def wrapper():
-        if not session.get("usuario_id"):
+        if not session["usuario_id"]:
             return jsonify({'error': "faça login"}), 403
 
         # Conecta na DB 
@@ -39,7 +39,7 @@ def login_necessario_fetch(funcao):
         # Acessa DB
         try: 
             # Checa se conta existe com id da sessão
-            if cur.execute("SELECT 1 FROM usuarios WHERE id = ?", (session.get("usuario_id"),)).fetchone():
+            if cur.execute("SELECT 1 FROM usuarios WHERE id = ?", (session["usuario_id"],)).fetchone():
                 return funcao()
             else:
                 return jsonify({'error': "faça login"}), 403
