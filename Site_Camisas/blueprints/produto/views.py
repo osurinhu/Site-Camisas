@@ -1,5 +1,5 @@
 from ..ajudantes.resources import render_erro
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect
 import sqlite3
 import locale
 
@@ -9,10 +9,9 @@ locale.setlocale(locale.LC_ALL, 'pt_BR')
 produto_bp =  Blueprint("produto_bp", __name__, template_folder="templates", url_prefix="/produto")
 
 
-
 @produto_bp.route("/")
-def asd():
-    return render_template("produto.html")
+def produto_null():
+    return redirect("/")
 
 
 

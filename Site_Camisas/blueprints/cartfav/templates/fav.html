@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block titulo %}: Favoritos {% endblock %}
+
+{% block body %}
+
+{% if favoritos %}
+
+<div class="container">
+    <h2>FAVORITOS</h2>
+</div>
+
+<div class="container">
+    <div class="row row-cols-auto">
+
+        {% for produto in favoritos %}
+
+        <div class="col">
+            <div class="card" style="width: fit-content">
+                <div class="img-bg">
+                    <a href="/produto/{{ produto['id'] }}"><img src="data:image/*;base64, {{ produto['imagem'] }}"
+                            class="card-img-top" alt="{{ produto['descricao_img'] }}"></a>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title text-center"><a href="/produto/{{ produto['id'] }}">{{
+                            produto['produto_nome'] }}</a></h4>
+
+                    <div class="card-info">
+                        <p class="card-text"><small>DE:&emsp;&emsp;&emsp;&ensp;<s>R$ {{
+                                    produto['valor'] }}</s></small></p>
+
+                        <div class="d-flex justify-content-between">
+                            <h4>POR:&emsp;R${{ produto['atual'] }}</h4> &emsp;
+                            <small class="desconto-produto">-{{
+                                produto['desconto']}}%</small>
+                        </div>
+
+                        <div class="d-flex justify-content-evenly">
+
+                            <a href="/favrm?id={{ produto['id'] }}"><i class="bi bi-x-lg"></i></a>
+
+                            <form id="form_c_{{ produto['id'] }}">
+                                <input type="hidden" name="produto_id" value="{{ produto['id'] }}">
+                                <input type="hidden" name="qtd" value="1">
+                                <input type="hidden" name="act" value="insert">
+
+                                <a onclick="qtdcart('form_c_{{ produto['id'] }}');"><i class="bi bi-cart"></i></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% else %}
+
+<div style="height: 75vh; min-width: 100vh;" class="text-center">
+    <h1>Sem favoritos</h1>
+    <h4>Por enquanto...</h4>
+</div>
+
+
+{% endif %}
+{% endblock %}

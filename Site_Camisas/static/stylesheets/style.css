@@ -32,6 +32,7 @@ body{
     font-family: var(--font-family-default);
 }
 
+
 /* Navbar */
 
 .nav-meio{
@@ -66,6 +67,7 @@ body{
 
 .save{
     margin-right: 1.5rem;
+    font-size: xx-large;
 }
 
 .nav-meio i{
@@ -117,6 +119,7 @@ body{
 /* Footer */
 
 footer{
+    margin-top: 2rem;
     max-width: 100%;
     background-color: var(--font-color-destaque);
     color: var(--branco-cinza);
@@ -406,4 +409,87 @@ footer a:hover{
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+
+
+/* INDEX */
+
+.index-slide{
+    margin-top: 2rem !important;
+}
+
+.card{
+    width: 248px ;
+}
+
+.card-body .card-title{
+    font-size: 0.9rem;
+    width: 216px;
+    height: 3.3rem;
+    overflow: hidden;
+}
+
+.card-info{
+    padding: 5px 16px 6px 16px;
+}
+
+.card-body h4{
+    margin: 0;
+    font-weight: 500;
+}
+
+.card .img-bg{
+    max-height: 248px;
+    max-width: 248px;
+    overflow: hidden;
+}
+.card .card-img-top{
+    width: 100%;
+
+}
+
+.card-body p{
+    font-weight: 300 ;
+    color: #7f7f7f;
+    font-size: 0.9rem;
+
+    margin-bottom: 0;
+}
+
+.card-body button{
+    height: 16px;
+    width: 16px;
+
+    padding: 0;
+    margin: 0;
+    border: none;
+
+}
+
+.card-body a i{
+
+    color: #646464;
+    -webkit-text-stroke: 0.7px;
+}
+
+.card-body .bi-heart:hover{
+    color: crimson;
+    cursor: pointer;
+}
+
+.card-body .bi-cart:hover{
+    color: royalblue;
+    cursor: pointer;
+}
+
+
+.card a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+  
+
+  .carousel-control-prev, .carousel-control-next {
+    filter: invert(100%); 
 }

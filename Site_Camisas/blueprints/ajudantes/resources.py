@@ -1,4 +1,4 @@
-from flask import flash, render_template, redirect, session, url_for
+from flask import flash, render_template, redirect, session, url_for, jsonify
 import sqlite3
 
 def render_erro(mensagem="", codigo="400"):
@@ -28,6 +28,27 @@ def login_necessario(funcao):
     return wrapper
 
 
+def login_necessario_fetch(funcao):
+    def wrapper():
+        if not session.get("usuario_id"):
+            return jsonify({'error': "faça login"}), 403
+
+        # Conecta na DB 
+        with sqlite3.connect("database/database.db") as con:
+            cur = con.cursor()
+        # Acessa DB
+        try: 
+            # Checa se conta existe com id da sessão
+            if cur.execute("SELECT 1 FROM usuarios WHERE id = ?", (session.get("usuario_id"),)).fetchone():
+                return funcao()
+            else:
+                return jsonify({'error': "faça login"}), 403
+        # Fecha DB
+        finally:
+            cur.close()
+
+    wrapper.__name__ = funcao.__name__
+    return wrapper
 
 def apenas_admin(funcao):
     @login_necessario

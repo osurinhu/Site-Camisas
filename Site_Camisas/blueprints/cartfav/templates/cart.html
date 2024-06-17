@@ -1,51 +1,57 @@
 {% extends 'base.html' %}
 
-{% block titulo %}: Carrinho {{ codigo }} {% endblock %}
+{% block titulo %}: Carrinho{% endblock %}
 
 {% block body %}
 
-{% if itens %}
-<div class="container carrinho">
+{% if carrinho %}
+<div class="container">
+    <h2>CARRINHO</h2>
+</div>
 
-    
-    {% for item in itens %}
+<div class="container carrinho">
+    {% for item in carrinho %}
 
     <div class="item-cart row">
         <div class="col-sm-2">
 
-            <div style="height: 180px; width: 180px; background-color: white; margin-top: 1rem;">
-                <img src="data:image/jpg;base64, {{item[10]}}" alt="{{item[9]}}">
-            </div>
+
+            <a href="/produto/{{ item['produto_id'] }}"><img src="data:image/jpg;base64, {{ item['imagem'] }}"
+                    alt="{{ item['descricao_img'] }}"></a>
+
 
             <div class="d-flex justify-content-start qtd-cart">
-                <a style="color: inherit;" href="/cartqtd?id={{item[0]}}&qtd={{item[1]}}&act=sub"><i class="bi bi-dash-lg"></i></a>
-                <div>{{item[1]}}</div>
-                <a style="color: inherit;" href="/cartqtd?id={{item[0]}}&qtd={{item[1]}}&act=add"><i class="bi bi-plus-lg"></i></a>
+                <a style="color: inherit;" href="/cartqtd?id={{ item['produto_id'] }}&qtd={{ item['qtd'] }}&act=sub"><i
+                        class="bi bi-dash-lg"></i></a>
+                <div>{{ item['qtd'] }}</div>
+                <a style="color: inherit;" href="/cartqtd?id={{ item['produto_id'] }}&qtd={{ item['qtd'] }}&act=add"><i
+                        class="bi bi-plus-lg"></i></a>
             </div>
         </div>
         <div class="col-sm-6">
 
             <div class="row">
+                <a href="/produto/{{ item['produto_id'] }}"></a>
                 <h3 class="nome-prod">
-                    {{item[2]}}
-                </h3>
+                    {{ item['produto_nome'] }}
+                </h3></a>
             </div>
 
             <div class="row vend-cart">
-                <small>por {{item[8]}}</small>
+                <small>por {{ item['vendedor'] }}</small>
             </div>
 
 
             <div class="row">
-                <p class="valor-cart">Valor unitario: <strong>R${{item[4]}}</strong></p>
+                <p class="valor-cart">Valor unitario: <strong>R$ {{ item['valor'] }}</strong></p>
             </div>
 
             <div class="row">
-                <p class="valor-cart">Desconto: <strong>{{item[5]}}%</strong></p>
+                <p class="valor-cart">Desconto: <strong>{{ item['desconto'] }}%</strong></p>
             </div>
 
             <div class="row">
-                <p class="subt-cart">Total: <strong>{{item[7]}}</strong></p>
+                <p class="subt-cart">Total: <strong>R$ {{ item['total'] }}</strong></p>
             </div>
 
         </div>
@@ -53,9 +59,10 @@
             <div class="row">
                 <div class="col">
                     <p class="desc-prod">
-                        {{item[3]}}
+                        {{ item['produto_descricao'] }}
                     </p>
-                    <a href="/cartrm?id={{item[0]}}" style="color: inherit;"><i style="margin-left: 100%;"class="bi bi-x-lg"></i></a>
+                    <a href="/cartrm?id={{ item['produto_id'] }}" style="color: inherit;"><i style="margin-left: 100%;"
+                            class="bi bi-x-lg"></i></a>
                 </div>
 
             </div>
@@ -88,11 +95,5 @@
     <h4>Isso é ruim... melhor encher ele</h4>
 </div>
 {% endif %}
-
-
-
-<script src="src/Data.js"></script>
-<script src="src/cart.js"></script>
-
 
 {% endblock %}
