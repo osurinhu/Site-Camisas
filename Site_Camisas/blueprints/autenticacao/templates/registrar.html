@@ -2,7 +2,7 @@
 {% block titulo %}: Registrar{% endblock %}
 {% block body %}
 
-<div class="centro">
+<div class="centro" style="margin-top: 1rem;">
         <form action="/registrar" method="post" class="auth-form">
             <h1 class="txt-destaque">Cadastrar Conta</h1>
 
@@ -20,7 +20,7 @@
 
             {% set mensagens = get_flashed_messages() %}
             {% for mensagem in mensagens %}
-                <p> {{ mensagem }} </p>
+                <p class="erro"> {{ mensagem }} </p>
             {% endfor %}
         </form>
 </div>
